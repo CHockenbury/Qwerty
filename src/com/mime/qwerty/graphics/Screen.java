@@ -14,8 +14,14 @@ public class Screen extends Render {
 		super(width, height);
 		Random random = new Random();
 		test = new Render(WIDTH, HEIGHT);
+		int ne = 0;
 		for (int i = 0; i < WIDTH * HEIGHT; i++) {
-			test.pixels[i] = random.nextInt() * (random.nextInt(5) / 4);
+
+			//random.nextInt() * (random.nextInt(5) / 4);
+			if (i % 2500 == 0) {
+				ne = Math.abs(random.nextInt());
+			}
+			test.pixels[i] = ne;
 		}
 	}
 
