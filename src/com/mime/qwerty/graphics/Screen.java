@@ -7,8 +7,8 @@ import com.mime.qwerty.Game;
 public class Screen extends Render {
 
 	private Render test;
-	private int WIDTH = 250;
-	private int HEIGHT = 250;
+	private int WIDTH = 256;
+	private int HEIGHT = 256;
 
 	public Screen(int width, int height) {
 		super(width, height);
@@ -18,8 +18,18 @@ public class Screen extends Render {
 		for (int i = 0; i < WIDTH * HEIGHT; i++) {
 
 			//random.nextInt() * (random.nextInt(5) / 4);
-			if (i % 2500 == 0) {
+			int radius = WIDTH / 2;
+			int x1 = radius -1;
+			int y1 = radius - 1;
+			int x2 = i % WIDTH;
+			int y2 = i / HEIGHT
+			int distance = Math.sqrt(Math.pow(x2-x1, 2) + Math.pow(y1-y2,2))
+			if (distance <= radius) {
 				ne = Math.abs(random.nextInt());
+			}
+			else
+			{
+				ne = 0;
 			}
 			test.pixels[i] = ne;
 		}
