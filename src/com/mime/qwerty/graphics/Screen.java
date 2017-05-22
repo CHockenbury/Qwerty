@@ -19,13 +19,16 @@ public class Screen extends Render {
 
 			//random.nextInt() * (random.nextInt(5) / 4);
 			int radius = WIDTH / 2;
-			int x1 = radius -1;
+			int x1 = radius-1;
 			int y1 = radius - 1;
 			int x2 = i % WIDTH;
-			int y2 = i / HEIGHT
-			int distance = Math.sqrt(Math.pow(x2-x1, 2) + Math.pow(y1-y2,2))
-			if (distance <= radius) {
-				ne = Math.abs(random.nextInt());
+			int y2 = i / HEIGHT;
+			int distance = (int) Math.sqrt(Math.pow(x2-x1, 2) + Math.pow(y1-y2,2))+1;
+			if (distance < radius) {
+				ne = 88820;//Math.abs(random.nextInt());
+			}
+			else if (distance == radius) {
+				ne = 99999990;
 			}
 			else
 			{
@@ -41,8 +44,8 @@ public class Screen extends Render {
 			pixels[i] = 0;
 		}
 		for (int i = 0; i < 50; i++) {
-			int anim  = (int) (Math.sin((game.time + i) % 1000.0 / 100) * 100);
-			int anim2 = (int) (Math.cos((game.time + i) % 1000.0 / 100) * 100);
+			int anim  = (int) (Math.sin((game.time + i * 5) % 1000.0 / 100) * 100);
+			int anim2 = (int) (Math.cos((game.time + i * 5) % 1000.0 / 100) * 100);
 			draw(test, (width - 256) / 2 + anim, (height - 256) / 2 - + anim2);
 		}
 	}
